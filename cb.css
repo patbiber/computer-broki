@@ -6,7 +6,7 @@ body {
   background-size: cover;
   margin: 0; 
   padding: 0; 
-  padding-top: 120px; /* Adjust based on the height of your header */
+  padding-top: 200px; /* Adjust based on the height of your header */
   padding-bottom:  500px;
 }
 header { 
