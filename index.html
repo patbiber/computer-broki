@@ -5,24 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Computer Broki</title>
 <link rel="stylesheet" href="cb.css">
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const headerOffset = 100; // Height of the header
+        const elementPosition = targetElement.offsetTop;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
+</script>
 </head>
 <body>
 <header>
-  <h1>Willkommen bei Computer Broki!</h1>
-  <p>Ihre erste Anlaufstelle für wiederbelebte Technik!</p>
+  <div>
+    <h1>Computer Broki</h1>
+  </div>
+  <nav>
+    <a href="#mission">Unsere Mission</a>
+    <a href="#goals">Unsere Ziele</a>
+    <a href="#help">Helfen Sie mit</a>
+    <a href="#project">Sei Teil des Projekts</a>
+    <a href="#how">Tips zum Selberbasteln</a>
+    <a href="#why">Die Hintergründe</a>
+  </nav>
 </header>
-<nav>
-  <a href="#mission">Unsere Mission</a>
-  <a href="#goals">Unsere Ziele</a>
-  <a href="#help">Helfen Sie mit</a>
-  <a href="#project">Sei Teil des Projeckts</a>
-  <a href="#how">Tips zum Selberbasteln</a>
-  <a href="#why">Die Hintergründe</a>
-</nav>
-<section class="hero">
-  <h2>Technik mit Seele retten</h2>
-  <p>Wo alte Computer neue Tricks lernen.</p>
-</section>
 <section id="mission">
   <h2>Was machen wir?</h2>
   <p>Computer Broki ist die Revolution gegen die Wegwerfkultur in der Technologie. Wir hauchen alten Geräten neues Leben ein und bereiten sie für ihren zweiten Frühling vor. Unsere Experten sind die Fitnesstrainer Ihrer Technik!</p>
@@ -73,8 +91,7 @@
 <footer class="footer">
   <p>© 2024 Computer Broki. Alle Rechte vorbehalten.</p>
   <p>Impressum: Biber Network IT, Hermann Hiltbrunner-Weg 24, 8713 Ürikon, Schweiz | Tel: 078 662 59 21</p>
-  <p><a href="/datenschutz">Datenschutzrichtlinien</a></p>
-  <p><a href="/nutzungsbedingungen">Nutzungsbedingungen</a></p>
+  <p><a href="/datenschutz">Datenschutzrichtlinien</a> | <a href="/nutzungsbedingungen">Nutzungsbedingungen</a></p>
 </footer>
 </body>
 </html>
