@@ -1,0 +1,55 @@
+body { 
+    font-family: Arial, sans-serif; 
+    color: #333; 
+    background: #f4f4f4; 
+    margin: 0; 
+    padding: 0; 
+  }
+  header, footer { 
+    background: #006d77; /* Deep cyan blue shade */
+    color: white; 
+    padding: 1rem; 
+    text-align: center; 
+  }
+  nav { 
+    background: #004346; /* Darker shade of cyan blue */
+    color: white; 
+    padding: 0.5rem; 
+    text-align: center; 
+  }
+  nav a { 
+    color: white; 
+    margin: 10px; 
+    text-decoration: none; 
+  }
+  section { 
+    padding: 20px; 
+    margin: 0 15px; 
+    background: #edf6f9; /* Light cyan blue, almost white */
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  }
+  .hero { 
+    padding: 2rem; 
+    background: url('collaboration.webp') no-repeat center center; 
+    background-size: cover; 
+    color: white; 
+    text-align: center; 
+    text-shadow: 1px 1px 2px green;  }
+  .footer {
+    background: #006d77; 
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+  .footer a {
+    color: #aed9e0; /* Lighter shade of cyan for links */
+    text-decoration: none;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .content { 
+    padding: 2rem; 
+  }
