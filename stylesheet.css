@@ -24,6 +24,7 @@ header {
 nav { 
   display: flex;
   justify-content: flex-end;
+  margin-right: 80px;
 }
 nav a { 
   color: white; 
