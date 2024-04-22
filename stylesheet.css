@@ -59,3 +59,33 @@ section {
 .footer a:hover {
   text-decoration: underline;
 }
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%; /* Full-width nav menu */
+    display: none; /* Hide the nav by default */
+    margin-right: 0;
+  }
+  
+  nav a {
+    display: block; /* Make links block-level for better touch targets */
+    margin: 10px 0; /* Spacing between links */
+  }
+
+  #hamburger-btn {
+    display: block; /* Show hamburger menu */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  header {
+    flex-wrap: wrap; /* Allow header items to wrap */
+    padding: 0.5rem; /* Reduce padding */
+  }
+}

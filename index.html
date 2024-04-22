@@ -25,6 +25,35 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   });
 });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const hamburger = document.getElementById('hamburger-btn');
+  const nav = document.querySelector('nav');
+  
+  hamburger.addEventListener('click', () => {
+    const isVisible = nav.style.display === 'flex';
+    nav.style.display = isVisible ? 'none' : 'flex';
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const headerOffset = 100; // Height of the header
+        const elementPosition = targetElement.offsetTop;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+        nav.style.display = 'none'; // Close the nav menu when a link is clicked
+      }
+    });
+  });
+});
 </script>
 </head>
 <body>
@@ -32,6 +61,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   <div>
     <h1>Computer Broki Stäfa</h1>
   </div>
+  <button id="hamburger-btn">☰</button> <!-- Hamburger Menu Button -->
   <nav>
     <a href="#mission">Unsere Mission</a>
     <a href="#goals">Unsere Ziele</a>
