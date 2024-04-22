@@ -26,34 +26,43 @@ document.addEventListener('DOMContentLoaded', (event) => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  const hamburger = document.getElementById('hamburger-btn');
-  const nav = document.querySelector('nav');
-  
-  hamburger.addEventListener('click', () => {
-    const isVisible = nav.style.display === 'flex';
-    nav.style.display = isVisible ? 'none' : 'flex';
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth <= 768) {
+    const hamburger = document.getElementById('hamburger-btn');
+    const nav = document.querySelector('nav');
 
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        const headerOffset = 100; // Height of the header
-        const elementPosition = targetElement.offsetTop;
-        const offsetPosition = elementPosition - headerOffset;
+    // Initially set or ensure the nav is hidden on page load within a mobile view
+    nav.style.display = nav.style.display || 'none';
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-        nav.style.display = 'none'; // Close the nav menu when a link is clicked
-      }
+    hamburger.addEventListener('click', () => {
+      // Toggle the display state of the nav
+      nav.style.display = (nav.style.display === 'none') ? 'flex' : 'none';
     });
-  });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerOffset = 100; // Height of the header
+          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Close the nav menu when a link is clicked
+          nav.style.display = 'none';
+        }
+      });
+    });
+  }
 });
+
 </script>
 </head>
 <body>
@@ -63,12 +72,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
   </div>
   <button id="hamburger-btn">☰</button> <!-- Hamburger Menu Button -->
   <nav>
-    <a href="#mission">Unsere Mission</a>
-    <a href="#goals">Unsere Ziele</a>
-    <a href="#help">Helfen Sie mit</a>
-    <a href="#project">Sei Teil des Projekts</a>
-    <a href="#how">Tips zum Selberbasteln</a>
-    <a href="#why">Die Hintergründe</a>
+    <ul>
+      <a href="#mission">Unsere Mission</a>
+      <a href="#goals">Unsere Ziele</a>
+      <a href="#help">Helfen Sie mit</a>
+      <a href="#project">Sei Teil des Projekts</a>
+      <a href="#how">Tips zum Selberbasteln</a>
+      <a href="#why">Die Hintergründe</a>
+    </ul>
   </nav>
 </header>
 <section id="mission">

@@ -26,17 +26,23 @@ nav {
   justify-content: flex-end;
   margin-right: 80px;
 }
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center the links horizontally */
+}
 nav a { 
+  display: inline-block;
+  margin: 0 10px; /* Space out the links */
   color: white; 
-  margin-left: 20px; 
   text-decoration: none; 
-  font-size: 1rem;
+  padding: 10px;
 }
 a:hover {
   background-color: red; 
   border-radius: 5px;
-  padding: 2px 4px;
-  text-decoration:none;
 }
 section { 
   padding: 30px; 
@@ -60,6 +66,12 @@ section {
   text-decoration: underline;
 }
 
+#hamburger-btn {
+  border: none;
+  font-size: 1px;
+  background: none;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
   nav {
@@ -68,6 +80,11 @@ section {
     width: 100%; /* Full-width nav menu */
     display: none; /* Hide the nav by default */
     margin-right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
   }
   
   nav a {
@@ -80,8 +97,9 @@ section {
     background: none;
     border: none;
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
     cursor: pointer;
+    margin-right: 10px;
   }
 
   header {
